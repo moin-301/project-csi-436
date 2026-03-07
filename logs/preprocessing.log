@@ -1,0 +1,116 @@
+2026-03-06 21:57:26 | INFO | preprocessing | ==================================================
+2026-03-06 21:57:26 | INFO | preprocessing | Starting preprocessing pipeline — split: train
+2026-03-06 21:57:26 | INFO | preprocessing | Loading raw IMDB data — split: train
+2026-03-06 21:57:26 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/train/neg
+2026-03-06 21:57:28 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/train/pos
+2026-03-06 21:57:30 | INFO | preprocessing | Total loaded: 25000 reviews
+2026-03-06 21:57:30 | INFO | preprocessing | Cleaning reviews...
+2026-03-06 21:57:39 | INFO | preprocessing | Fitting TF-IDF | max_features=20000, ngram_range=(1, 2), min_df=3
+2026-03-06 21:57:44 | INFO | preprocessing | TF-IDF matrix shape: (25000, 20000)
+2026-03-06 21:57:45 | INFO | preprocessing | Saved matrix  → data/processed/train_tfidf.npz
+2026-03-06 21:57:45 | INFO | preprocessing | Saved labels  → data/processed/train_labels.npy
+2026-03-06 21:57:45 | INFO | preprocessing | Saved vectorizer → data/processed/vectorizer.pkl
+2026-03-06 21:57:45 | INFO | preprocessing | Pipeline complete in 18.6s
+2026-03-06 21:57:45 | INFO | preprocessing | ==================================================
+2026-03-06 21:57:45 | INFO | preprocessing | ==================================================
+2026-03-06 21:57:45 | INFO | preprocessing | Starting preprocessing pipeline — split: test
+2026-03-06 21:57:45 | INFO | preprocessing | Loading raw IMDB data — split: test
+2026-03-06 21:57:45 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/test/neg
+2026-03-06 21:57:47 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/test/pos
+2026-03-06 21:57:48 | INFO | preprocessing | Total loaded: 25000 reviews
+2026-03-06 21:57:48 | INFO | preprocessing | Cleaning reviews...
+2026-03-06 21:57:57 | INFO | preprocessing | Fitting TF-IDF | max_features=20000, ngram_range=(1, 2), min_df=3
+2026-03-06 21:58:01 | INFO | preprocessing | TF-IDF matrix shape: (25000, 20000)
+2026-03-06 21:58:02 | INFO | preprocessing | Saved matrix  → data/processed/test_tfidf.npz
+2026-03-06 21:58:02 | INFO | preprocessing | Saved labels  → data/processed/test_labels.npy
+2026-03-06 21:58:02 | INFO | preprocessing | Saved vectorizer → data/processed/vectorizer.pkl
+2026-03-06 21:58:02 | INFO | preprocessing | Pipeline complete in 17.5s
+2026-03-06 21:58:02 | INFO | preprocessing | ==================================================
+2026-03-06 22:03:26 | INFO | preprocessing | ==================================================
+2026-03-06 22:03:26 | INFO | preprocessing | Starting preprocessing pipeline - split: train
+2026-03-06 22:03:26 | INFO | preprocessing | Loading raw IMDB data - split: train
+2026-03-06 22:03:26 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/train/neg
+2026-03-06 22:03:27 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/train/pos
+2026-03-06 22:03:29 | INFO | preprocessing | Total loaded: 25000 reviews
+2026-03-06 22:03:29 | INFO | preprocessing | Cleaning reviews...
+2026-03-06 22:03:39 | INFO | preprocessing | Fitting TF-IDF on training data | max_features=20000, ngram_range=(1, 2), min_df=3
+2026-03-06 22:03:45 | INFO | preprocessing | TF-IDF matrix shape: (25000, 20000)
+2026-03-06 22:03:45 | INFO | preprocessing | Vectorizer saved to data/processed/vectorizer.pkl
+2026-03-06 22:03:46 | INFO | preprocessing | Saved matrix  : data/processed/train_tfidf.npz
+2026-03-06 22:03:46 | INFO | preprocessing | Saved labels  : data/processed/train_labels.npy
+2026-03-06 22:03:46 | INFO | preprocessing | Pipeline complete in 20.0s
+2026-03-06 22:03:46 | INFO | preprocessing | ==================================================
+2026-03-06 22:03:46 | INFO | preprocessing | ==================================================
+2026-03-06 22:03:46 | INFO | preprocessing | Starting preprocessing pipeline - split: test
+2026-03-06 22:03:46 | INFO | preprocessing | Loading raw IMDB data - split: test
+2026-03-06 22:03:46 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/test/neg
+2026-03-06 22:03:48 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/test/pos
+2026-03-06 22:03:49 | INFO | preprocessing | Total loaded: 25000 reviews
+2026-03-06 22:03:49 | INFO | preprocessing | Cleaning reviews...
+2026-03-06 22:04:02 | INFO | preprocessing | Vectorizer loaded from data/processed/vectorizer.pkl
+2026-03-06 22:04:02 | INFO | preprocessing | Transforming test data using fitted train vectorizer
+2026-03-06 22:04:05 | INFO | preprocessing | TF-IDF matrix shape: (25000, 20000)
+2026-03-06 22:04:06 | INFO | preprocessing | Saved matrix  : data/processed/test_tfidf.npz
+2026-03-06 22:04:06 | INFO | preprocessing | Saved labels  : data/processed/test_labels.npy
+2026-03-06 22:04:06 | INFO | preprocessing | Pipeline complete in 20.7s
+2026-03-06 22:04:06 | INFO | preprocessing | ==================================================
+2026-03-06 22:23:17 | INFO | preprocessing | ==================================================
+2026-03-06 22:23:17 | INFO | preprocessing | Starting preprocessing pipeline - split: train
+2026-03-06 22:23:17 | INFO | preprocessing | Loading raw IMDB data - split: train
+2026-03-06 22:23:17 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/train/neg
+2026-03-06 22:23:19 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/train/pos
+2026-03-06 22:23:21 | INFO | preprocessing | Total loaded: 25000 reviews
+2026-03-06 22:23:21 | INFO | preprocessing | Cleaning reviews...
+2026-03-06 22:23:30 | INFO | preprocessing | Fitting TF-IDF on training data | max_features=20000, ngram_range=(1, 2), min_df=3
+2026-03-06 22:23:35 | INFO | preprocessing | TF-IDF matrix shape: (25000, 20000)
+2026-03-06 22:23:35 | INFO | preprocessing | Vectorizer saved to data/processed/vectorizer.pkl
+2026-03-06 22:23:36 | INFO | preprocessing | Saved matrix  : data/processed/train_tfidf.npz
+2026-03-06 22:23:36 | INFO | preprocessing | Saved labels  : data/processed/train_labels.npy
+2026-03-06 22:23:36 | INFO | preprocessing | Saved cleaned : data/processed/train_cleaned.pkl
+2026-03-06 22:23:36 | INFO | preprocessing | Pipeline complete in 18.6s
+2026-03-06 22:23:36 | INFO | preprocessing | ==================================================
+2026-03-06 22:23:36 | INFO | preprocessing | ==================================================
+2026-03-06 22:23:36 | INFO | preprocessing | Starting preprocessing pipeline - split: test
+2026-03-06 22:23:36 | INFO | preprocessing | Loading raw IMDB data - split: test
+2026-03-06 22:23:36 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/test/neg
+2026-03-06 22:23:38 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/test/pos
+2026-03-06 22:23:39 | INFO | preprocessing | Total loaded: 25000 reviews
+2026-03-06 22:23:39 | INFO | preprocessing | Cleaning reviews...
+2026-03-06 22:23:49 | INFO | preprocessing | Vectorizer loaded from data/processed/vectorizer.pkl
+2026-03-06 22:23:49 | INFO | preprocessing | Transforming test data using fitted train vectorizer
+2026-03-06 22:23:51 | INFO | preprocessing | TF-IDF matrix shape: (25000, 20000)
+2026-03-06 22:23:52 | INFO | preprocessing | Saved matrix  : data/processed/test_tfidf.npz
+2026-03-06 22:23:52 | INFO | preprocessing | Saved labels  : data/processed/test_labels.npy
+2026-03-06 22:23:52 | INFO | preprocessing | Saved cleaned : data/processed/test_cleaned.pkl
+2026-03-06 22:23:52 | INFO | preprocessing | Pipeline complete in 16.1s
+2026-03-06 22:23:52 | INFO | preprocessing | ==================================================
+2026-03-06 22:25:06 | INFO | preprocessing | ==================================================
+2026-03-06 22:25:06 | INFO | preprocessing | Starting preprocessing pipeline - split: train
+2026-03-06 22:25:06 | INFO | preprocessing | Loading raw IMDB data - split: train
+2026-03-06 22:25:06 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/train/neg
+2026-03-06 22:25:08 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/train/pos
+2026-03-06 22:25:09 | INFO | preprocessing | Total loaded: 25000 reviews
+2026-03-06 22:25:09 | INFO | preprocessing | Cleaning reviews...
+2026-03-06 22:25:18 | INFO | preprocessing | Fitting TF-IDF on training data | max_features=20000, ngram_range=(1, 2), min_df=3
+2026-03-06 22:25:23 | INFO | preprocessing | TF-IDF matrix shape: (25000, 20000)
+2026-03-06 22:25:23 | INFO | preprocessing | Vectorizer saved to data/processed/vectorizer.pkl
+2026-03-06 22:25:24 | INFO | preprocessing | Saved matrix  : data/processed/train_tfidf.npz
+2026-03-06 22:25:24 | INFO | preprocessing | Saved labels  : data/processed/train_labels.npy
+2026-03-06 22:25:24 | INFO | preprocessing | Saved cleaned : data/processed/train_cleaned.pkl
+2026-03-06 22:25:24 | INFO | preprocessing | Pipeline complete in 17.8s
+2026-03-06 22:25:24 | INFO | preprocessing | ==================================================
+2026-03-06 22:25:24 | INFO | preprocessing | ==================================================
+2026-03-06 22:25:24 | INFO | preprocessing | Starting preprocessing pipeline - split: test
+2026-03-06 22:25:24 | INFO | preprocessing | Loading raw IMDB data - split: test
+2026-03-06 22:25:24 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/test/neg
+2026-03-06 22:25:26 | INFO | preprocessing |   Found 12500 files in data/raw/aclImdb/test/pos
+2026-03-06 22:25:28 | INFO | preprocessing | Total loaded: 25000 reviews
+2026-03-06 22:25:28 | INFO | preprocessing | Cleaning reviews...
+2026-03-06 22:25:36 | INFO | preprocessing | Vectorizer loaded from data/processed/vectorizer.pkl
+2026-03-06 22:25:36 | INFO | preprocessing | Transforming test data using fitted train vectorizer
+2026-03-06 22:25:38 | INFO | preprocessing | TF-IDF matrix shape: (25000, 20000)
+2026-03-06 22:25:39 | INFO | preprocessing | Saved matrix  : data/processed/test_tfidf.npz
+2026-03-06 22:25:39 | INFO | preprocessing | Saved labels  : data/processed/test_labels.npy
+2026-03-06 22:25:39 | INFO | preprocessing | Saved cleaned : data/processed/test_cleaned.pkl
+2026-03-06 22:25:39 | INFO | preprocessing | Pipeline complete in 14.6s
+2026-03-06 22:25:39 | INFO | preprocessing | ==================================================
