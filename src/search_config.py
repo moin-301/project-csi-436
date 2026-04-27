@@ -2,7 +2,7 @@
 # search_config.py
 #
 # PURPOSE : All hyperparameter search settings in one place.
-#           Grid Search and Random Search both read from here.
+#           Grid Search, Random Search, and Bayesian Search all read from here.
 #           Nothing is hardcoded inside the search scripts.
 #
 # HOW TO USE:
@@ -12,6 +12,8 @@
 # HOW TO ADD A NEW KERNEL:
 #   1. Add its grid to GRID_SEARCH_SPACES
 #   2. Add its distributions to RANDOM_SEARCH_DISTRIBUTIONS
+#   3. Add its space to BAYESIAN_SEARCH_SPACES
+#   4. Add its iteration counts to RANDOM_SEARCH_N_ITER and BAYESIAN_N_CALLS
 #   That is all. The search scripts do not need to change.
 # =============================================================================
 
@@ -34,13 +36,13 @@ SEARCH_KERNEL = "linear"
 
 # ---------------------------------------------------------------------------
 # CROSS-VALIDATION SETTINGS
-# Same settings used by both Grid Search and Random Search
-# so the comparison between them stays fair.
+# Same settings used by Grid Search, Random Search, and Bayesian Search
+# so the comparison between all three methods stays fair.
 # ---------------------------------------------------------------------------
 
 CV_FOLDS        = 5               # Stratified 5-fold
 CV_SCORING      = "f1_macro"      # Main tuning score -- same for all methods
-CV_RANDOM_STATE = 42           # For reproducibility
+CV_RANDOM_STATE = 31              # For reproducibility
 CV_SHUFFLE      = True            # Shuffle before splitting folds
 
 # ---------------------------------------------------------------------------
@@ -130,7 +132,67 @@ RANDOM_SEARCH_DISTRIBUTIONS = {
 # ---------------------------------------------------------------------------
 # OUTPUT PATHS
 # Search results go inside results/search/{method}/{kernel}_{timestamp}/
-# Defined here so both scripts use the same structure.
+# Defined here so all three scripts use the same structure.
 # ---------------------------------------------------------------------------
 
 SEARCH_RESULTS_SUBDIR = "search"    # Inside RESULTS_DIR from paths.py
+
+
+# ---------------------------------------------------------------------------
+# BAYESIAN SEARCH SPACES
+#
+# Each kernel has its own list of skopt dimension objects.
+# Real        = Continuous values sampled on log or uniform scale
+# Integer     = Whole number values
+# Categorical = Discrete choices
+#
+# The name field on each dimension must match the SVC parameter name exactly.
+# ---------------------------------------------------------------------------
+
+from skopt.space import Real, Integer, Categorical
+
+BAYESIAN_SEARCH_SPACES = {
+
+    "linear": [
+        Real(0.01, 100, prior="log-uniform", name="C"),
+    ],
+
+    "rbf": [
+        Real(0.01, 100, prior="log-uniform", name="C"),
+        Categorical(["scale", "auto", 0.001, 0.01, 0.1], name="gamma"),
+    ],
+
+    "poly": [
+        Real(0.01, 100, prior="log-uniform", name="C"),
+        Integer(2, 4, name="degree"),
+        Categorical(["scale", "auto"], name="gamma"),
+        Real(0.0, 2.0, prior="uniform", name="coef0"),
+    ],
+
+    "sigmoid": [
+        Real(0.01, 100, prior="log-uniform", name="C"),
+        Categorical(["scale", "auto", 0.001, 0.01, 0.1], name="gamma"),
+        Real(-1.0, 1.0, prior="uniform", name="coef0"),
+    ],
+}
+
+# ---------------------------------------------------------------------------
+# BAYESIAN SEARCH -- Number of iterations per kernel
+#
+# Kept the same as RANDOM_SEARCH_N_ITER so the computational budget
+# is equal across all three methods for a fair comparison.
+#
+# n_initial_points of those calls are random exploration before
+# the Gaussian Process starts making informed suggestions.
+# ---------------------------------------------------------------------------
+
+BAYESIAN_N_CALLS = {
+    "linear"  : 20,
+    "rbf"     : 25,
+    "poly"    : 30,
+    "sigmoid" : 25,
+}
+
+# Number of random exploration steps before Gaussian Process takes over.
+# Rule of thumb: roughly 20-25% of total n_calls.
+BAYESIAN_N_INITIAL_POINTS = 5
